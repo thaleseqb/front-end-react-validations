@@ -17,8 +17,13 @@ const BarraNavegacao = () => {
     const [usuarioLogado, setUsuarioLogado] = useState<boolean>(token != null);
 
     const aoEfetuarLogin = () => {
-        setModalAbertaLogin(false);
         setUsuarioLogado(true);
+        setModalAbertaLogin(false);
+    }
+
+    const aoCriarConta = () => {
+        setModalAbertaLogin(false);
+        setModalAberta(true);
     }
 
     return (<nav className="ab-navbar">
@@ -84,10 +89,7 @@ const BarraNavegacao = () => {
                         aberta={modalAbertaLogin}
                         aoFechar={() => setModalAbertaLogin(false)}
                         aoEfetuarLogin={aoEfetuarLogin}
-                        criarConta={() => {
-                            setModalAbertaLogin(false);
-                            setModalAberta(true);
-                        }}/>
+                        criarConta={aoCriarConta}/>
                 </li>
             </>)}
             {usuarioLogado && 

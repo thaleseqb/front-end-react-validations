@@ -12,7 +12,7 @@ interface LoginModalProps {
     criarConta: () => void;
 }
 
-export const ModalLogin = ({ aberta, criarConta, aoFechar }:LoginModalProps) => {
+export const ModalLogin = ({ aberta, criarConta, aoFechar, aoEfetuarLogin }:LoginModalProps) => {
 
     const [email, setEmaillogin] = useState("");
     const [senha, setSenha] = useState("");
@@ -70,7 +70,9 @@ export const ModalLogin = ({ aberta, criarConta, aoFechar }:LoginModalProps) => 
                         </Link>
 
                         <AbBotao 
-                            texto="Fazer login" />
+                            texto="Fazer login"
+                            onClick={aoEfetuarLogin}    
+                        />
                     </div>
 
                     <hr />
