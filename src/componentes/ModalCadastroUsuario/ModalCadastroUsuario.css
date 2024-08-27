@@ -1,0 +1,20 @@
+.modalCadastro {
+    display: flex;
+    align-items: center;
+    padding-top: 32px;
+}
+
+.modalCadastro form {
+    width: 500px;
+    max-width: 100%;
+}
+
+.modalCadastro footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.separador {
+    display: flex;
+    gap: 20px;
+}
