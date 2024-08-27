@@ -1,0 +1,36 @@
+.loginModal {
+    display: flex;
+
+}
+
+.dadosContainer {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    max-width: 100%;
+    margin: 20px;
+}
+
+.textAndButton {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 5px 40px 5px;
+}
+
+.linkText {
+    color: rgb(19, 19, 109);
+    text-transform: lowercase;
+    text-decoration: underline;
+}
+
+.aindaNaoTemConta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+.textoSemConta {
+    margin-left: 15px;
+}
