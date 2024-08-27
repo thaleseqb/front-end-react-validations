@@ -4,7 +4,12 @@ import React, { useState } from "react"
 import "./ModalCadastroUsuario.css"
 import axios from "axios"
 
-export const ModalCadastroUSuario = () => {
+interface ModalProps {
+    aberta: boolean;
+    aoFechar: () => void;
+}
+
+export const ModalCadastroUSuario = ({aberta, aoFechar}:ModalProps) => {
 
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
@@ -22,6 +27,7 @@ export const ModalCadastroUSuario = () => {
         setSenha("");
         setCep("");
         setSenhaConfirmada("");
+        aoFechar();
     }
 
     const aoSubmeterForm = (evento:React.FormEvent<HTMLFormElement>) => {
@@ -50,8 +56,8 @@ export const ModalCadastroUSuario = () => {
     return (
         <AbModal 
             titulo="Cadastrar"
-            aberta={true}
-            aoFechar={() => console.log("fecha ai")}
+            aberta={aberta}
+            aoFechar={aoFechar}
         >
             <div className="modalCadastro">
                 <figure>

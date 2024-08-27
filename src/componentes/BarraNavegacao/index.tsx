@@ -4,8 +4,12 @@ import logo from './assets/logo.png'
 import usuario from './assets/usuario.svg'
 import './BarraNavegacao.css'
 import { ModalCadastroUSuario } from "../ModalCadastroUsuario"
+import { useState } from "react"
 
 const BarraNavegacao = () => {
+
+    const [modalAberta, setModalAberta] = useState(false);
+
     return (<nav className="ab-navbar">
         <h1 className="logo">
             <Link to="/">
@@ -53,8 +57,12 @@ const BarraNavegacao = () => {
                     texto="Cadastrar-se"
                     textoAltSrc="Icone representando um usuário"
                     imagemSrc={usuario}
+                    onClick={() => setModalAberta(true)}
                 />
-                <ModalCadastroUSuario/>
+                <ModalCadastroUSuario 
+                    aberta={modalAberta} 
+                    aoFechar={() => setModalAberta(false)} 
+                />
             </li>
         </ul>
     </nav>)
