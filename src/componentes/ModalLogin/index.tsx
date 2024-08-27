@@ -14,7 +14,7 @@ interface LoginModalProps {
 
 export const ModalLogin = ({ aberta, criarConta, aoFechar }:LoginModalProps) => {
 
-    const [emailLogin, setEmaillogin] = useState("");
+    const [email, setEmaillogin] = useState("");
     const [senha, setSenha] = useState("");
 
     const limparForm = () => {
@@ -25,17 +25,21 @@ export const ModalLogin = ({ aberta, criarConta, aoFechar }:LoginModalProps) => 
     const aoSubmeterFormLogin = (evento: React.FormEvent<HTMLElement>) => {
         evento.preventDefault();
         const dadosLogin = {
-            emailLogin,
+            email,
             senha
         }
 
-        axios.post("http://localhost:8000/public/registrar", dadosLogin)
-        .then(reposta => {
+        axios.post("http://localhost:8000/public/login", dadosLogin)
+        .then(resposta => {
+            sessionStorage.setItem('token', resposta.data.access_token);
             alert("login realizado com sucesso");
             limparForm();
-            console.log(dadosLogin);
         }).catch(erro => {
-            console.log(erro)
+            if (erro?.response?.data?.message) {
+                alert(erro.response.data.message);
+            } else {
+                alert("Aconteceu um erro inesperado ao efetuar seu login, entre em contato com o suporte");
+            }
         })
     }
 
@@ -45,13 +49,13 @@ export const ModalLogin = ({ aberta, criarConta, aoFechar }:LoginModalProps) => 
             aberta={aberta}
             aoFechar={aoFechar}
         >
-            <form className="loginModal">
+            <form onSubmit={aoSubmeterFormLogin} className="loginModal">
                 <figure>
                     <img src={image} alt="image para fazer o login, contém ícone de cadastro, chave e pessoa" />
                 </figure>
                 <div className="dadosContainer">
                     <AbCampoTexto 
-                        value={emailLogin}
+                        value={email}
                         label="E-mail"
                         onChange={(str) => setEmaillogin(str)}
                     />
@@ -65,7 +69,8 @@ export const ModalLogin = ({ aberta, criarConta, aoFechar }:LoginModalProps) => 
                             Esqueci minha senha
                         </Link>
 
-                        <AbBotao texto="Fazer login" />
+                        <AbBotao 
+                            texto="Fazer login" />
                     </div>
 
                     <hr />
