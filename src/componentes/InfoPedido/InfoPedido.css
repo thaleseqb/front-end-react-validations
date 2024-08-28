@@ -1,4 +1,15 @@
 .containerPedido {
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+.divContainer {
+    margin: 50px 0;
+}
+
+.asideContainer {
+    margin: 50px 0;
 }

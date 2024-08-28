@@ -6,19 +6,33 @@ interface InfoPedidoProps {
     dataPedido:string;
     valorTotal:string;
     dataEntrega:string;
+    index: number;
 }
 
-export const InfoPedido = ({pedido, dataPedido, valorTotal, dataEntrega}:InfoPedidoProps) => {
+export const InfoPedido = ({
+    pedido, 
+    dataPedido, 
+    valorTotal, 
+    dataEntrega,
+    index}:InfoPedidoProps) => {
+    
     return (
-        <div className="containerPedido">
-            <div>
-                <h3>Pedido: <strong>{pedido}</strong> </h3>
-                <h3>Data do pedido: <strong>{dataPedido}</strong> </h3>
-                <h3>Valor total: <strong>{valorTotal}</strong> </h3>
-                <h3>Entrega realizada em: <strong>{dataEntrega}</strong></h3>
-            </div>
+        <>
+            <div className="containerPedido">
+                <div>
+                    <h3>Pedido: <strong>{pedido}</strong> </h3>
+                    <h3>Data do pedido: <strong>{dataPedido}</strong> </h3>
+                    <h3>Valor total: <strong>{valorTotal}</strong> </h3>
+                    <h3>Entrega realizada em: <strong>{dataEntrega}</strong></h3>
+                </div>
 
-            <AbBotao texto="Detalhes"/>
-        </div>
+                <div className="botao">
+                    <AbBotao texto="Detalhes"/>
+                </div>
+            </div>
+            
+            {index ? "": <hr/>}
+        </>
+
     )
 }

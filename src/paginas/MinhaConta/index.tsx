@@ -1,6 +1,8 @@
 import { AbGrupoOpcoes } from "ds-alurabooks"
 import "./MinhaConta.css"
 import { InfoPedido } from "../../componentes/InfoPedido"
+import TagsCategorias from "../../componentes/TagsCategorias";
+import { hrtime } from "process";
 
 export const MinhaConta = () => {
     
@@ -48,18 +50,22 @@ export const MinhaConta = () => {
 
                 <div className="divContainer">
                     <h2><strong>Pedidos</strong></h2>
-                    {infoPedidos.map(pedido => {
+                    {infoPedidos.map((infoPedido, index) => {
                         return (
                             <InfoPedido
-                                dataEntrega={pedido.dataEntrega}
-                                dataPedido={pedido.dataPedido}
-                                pedido={pedido.pedido}
-                                valorTotal={pedido.valorTotal}
+                                key={infoPedido.pedido}
+                                dataEntrega={infoPedido.dataEntrega}
+                                dataPedido={infoPedido.dataPedido}
+                                pedido={infoPedido.pedido}
+                                valorTotal={infoPedido.valorTotal}
+                                index={index}
                             />
                         )
                     })}
                 </div>
             </div>
+
+            <TagsCategorias/>
         </>
     )
 }
