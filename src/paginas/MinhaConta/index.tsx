@@ -16,6 +16,25 @@ export const MinhaConta = () => {
         "Seus dados"
     ];
 
+    const excluiPedido = (id: number) => {
+        const token = sessionStorage.getItem("token");
+        const idPedido = respostaApi.find(pedido => {
+            return pedido.id === id;
+        })?.id
+
+        axios.delete(`http://localhost:8000/pedidos/${idPedido}`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+            .then(resposta => {
+                alert("Pedido excluído com sucesso");
+            })
+            .catch(erro => {
+                console.log(erro)
+            })
+    }
+
     useEffect(() => {
         const token = sessionStorage.getItem("token");
 
@@ -55,16 +74,15 @@ export const MinhaConta = () => {
 
                 <div className="divContainer">
                     <h2><strong>Pedidos</strong></h2>
-                    {respostaApi?.map((info, index) => {
-                        console.log(info)
+                    {respostaApi?.map(info => {
                         return (
                             <InfoPedido
+                                excluiPedido={excluiPedido}
                                 key={info.id}
                                 dataEntrega={info.entrega}
                                 dataPedido={info.data}
                                 pedido={info.id}
                                 valorTotal={info.total}
-                                index={index}
                             />
                         )
                     })}

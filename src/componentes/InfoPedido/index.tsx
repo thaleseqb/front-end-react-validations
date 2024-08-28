@@ -6,7 +6,7 @@ interface InfoPedidoProps {
     dataPedido:Date;
     valorTotal:number;
     dataEntrega: Date;
-    index: number;
+    excluiPedido: (id:number) => void;
 }
 
 export const InfoPedido = ({
@@ -14,7 +14,7 @@ export const InfoPedido = ({
     dataPedido, 
     valorTotal, 
     dataEntrega,
-    index}:InfoPedidoProps) => {
+    excluiPedido}:InfoPedidoProps) => {
     
     return (
         <>
@@ -26,12 +26,15 @@ export const InfoPedido = ({
                     <h3>Entrega realizada em: <strong>{`${dataEntrega}`}</strong></h3>
                 </div>
 
-                <div className="botao">
+                <div className="containerBotoes">
+                    <AbBotao 
+                        texto="Excluir pedido" 
+                        onClick={() => excluiPedido(pedido)}    
+                    />
                     <AbBotao texto="Detalhes"/>
                 </div>
             </div>
-
-            {index ? "": <hr/>}
+            <hr/>
         </>
 
     )

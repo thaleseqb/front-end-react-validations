@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
     margin-bottom: 30px;
 }
 
@@ -12,4 +12,11 @@
 
 .asideContainer {
     margin: 50px 0;
+}
+
+.containerBotoes {
+    display: flex;
+    width: 30%;
+    gap: 40px;
+    justify-content: space-between;
 }
