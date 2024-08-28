@@ -2,8 +2,8 @@ import "./MinhaConta.css"
 import { InfoPedido } from "../../componentes/InfoPedido"
 import TagsCategorias from "../../componentes/TagsCategorias";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { IApiReposta } from "../../interfaces/IApiResposta";
+import http from "../../http";
 
 export const MinhaConta = () => {
     
@@ -22,7 +22,7 @@ export const MinhaConta = () => {
             return pedido.id === id;
         })?.id
 
-        axios.delete(`http://localhost:8000/pedidos/${idPedido}`, {
+        http.delete(`pedidos/${idPedido}`, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
@@ -31,23 +31,19 @@ export const MinhaConta = () => {
                 alert("Pedido excluído com sucesso");
             })
             .catch(erro => {
-                console.log(erro)
+                console.log(erro);
             })
     }
 
     useEffect(() => {
         const token = sessionStorage.getItem("token");
 
-        axios.get<Array<IApiReposta>>("http://localhost:8000/pedidos", {
-            headers: {
-                "Authorization": `Bearer ${token}`
-            }
-        })
+        http.get<Array<IApiReposta>>("pedidos")
             .then(resposta => {
                 setRespostaApi(resposta.data);
             })
             .catch(erro => {
-                console.log(erro)
+                console.log(erro);
             })
     }, [])
 

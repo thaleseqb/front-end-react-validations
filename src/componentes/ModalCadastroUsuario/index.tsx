@@ -2,7 +2,7 @@ import { AbBotao, AbCampoTexto, AbModal } from "ds-alurabooks"
 import image from "./assets/login.png"
 import React, { useState } from "react"
 import "./ModalCadastroUsuario.css"
-import axios from "axios"
+import http from "../../http"
 
 interface ModalProps {
     aberta: boolean;
@@ -42,7 +42,7 @@ export const ModalCadastroUSuario = ({aberta, aoFechar}:ModalProps) => {
             senhaConfirmada
         };
 
-        axios.post("http://localhost:8000/public/registrar", usuario)
+        http.post("public/registrar", usuario)
         .then( resposta => {
             alert("Usuario foi cadastrado com sucesso !");
             limparForm();

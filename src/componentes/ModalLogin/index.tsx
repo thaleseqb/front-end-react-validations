@@ -3,7 +3,7 @@ import "./ModalLogin.css"
 import image from "../ModalCadastroUsuario/assets/login.png"
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import axios from "axios"
+import http from "../../http"
 
 interface LoginModalProps {
     aberta:boolean;
@@ -29,7 +29,7 @@ export const ModalLogin = ({ aberta, criarConta, aoFechar, aoEfetuarLogin }:Logi
             senha
         }
 
-        axios.post("http://localhost:8000/public/login", dadosLogin)
+        http.post("public/login", dadosLogin)
         .then(resposta => {
             sessionStorage.setItem('token', resposta.data.access_token);
             alert("login realizado com sucesso");
