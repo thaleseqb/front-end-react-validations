@@ -49,7 +49,10 @@ export const ModalLogin = ({ aberta, criarConta, aoFechar, aoEfetuarLogin }:Logi
             aberta={aberta}
             aoFechar={aoFechar}
         >
-            <form onSubmit={aoSubmeterFormLogin} className="loginModal">
+            <form onSubmit={(evento) => {
+                aoSubmeterFormLogin(evento);
+                aoEfetuarLogin();
+            }} className="loginModal">
                 <figure>
                     <img src={image} alt="image para fazer o login, contém ícone de cadastro, chave e pessoa" />
                 </figure>
@@ -69,10 +72,7 @@ export const ModalLogin = ({ aberta, criarConta, aoFechar, aoEfetuarLogin }:Logi
                             Esqueci minha senha
                         </Link>
 
-                        <AbBotao 
-                            texto="Fazer login"
-                            onClick={aoEfetuarLogin}    
-                        />
+                        <AbBotao texto="Fazer login"/>
                     </div>
 
                     <hr />
