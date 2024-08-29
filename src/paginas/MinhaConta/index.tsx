@@ -36,8 +36,6 @@ export const MinhaConta = () => {
     }
 
     useEffect(() => {
-        const token = sessionStorage.getItem("token");
-
         http.get<Array<IApiReposta>>("pedidos")
             .then(resposta => {
                 setRespostaApi(resposta.data);
