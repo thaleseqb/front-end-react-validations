@@ -48,3 +48,13 @@ export const obterMaisVendidos = async () => {
 
     return resposta.data;
 }
+
+export const obterProdutosDaCategoria = async (categoria: ICategoria) => {
+    const resposta = await http.get<Array<ILivro>>("livros", {
+        params: {
+            categoria: categoria.id
+        }
+    });
+
+    return resposta.data;
+}
