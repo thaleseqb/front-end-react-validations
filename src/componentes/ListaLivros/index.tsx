@@ -16,7 +16,7 @@ const ListaLivros = ({categoria}: ListaLivrosProps) => {
     })
 
     return (
-        <div className="listaLivrosContainer">
+        <section className="listaLivrosContainer">
             {produtos?.map(produto => {
                 return (
                     <Livro 
@@ -27,7 +27,7 @@ const ListaLivros = ({categoria}: ListaLivrosProps) => {
                     />
                 )
             })}
-        </div>
+        </section>
     )
 }
 
