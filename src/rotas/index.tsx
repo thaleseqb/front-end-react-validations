@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import Home from "../paginas/Home"
 import PaginaBase from "../paginas/PaginaBase"
 import { MinhaConta } from "../paginas/MinhaConta"
+import Categoria from "../paginas/Categoria"
 
 
 const Rotas = () => {
@@ -9,6 +10,7 @@ const Rotas = () => {
       <Route path='/' element={<PaginaBase />}>
         <Route path='/' element={<Home />} />
         <Route path="/minha-conta/pedidos" element={<MinhaConta/>} />
+        <Route path="/categorias/:slug" element={<Categoria/>}/>
       </Route>
     </Routes>)
 }
