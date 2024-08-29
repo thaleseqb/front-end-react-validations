@@ -1,6 +1,6 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
 import { ICategoria } from "../interfaces/ICategoria";
-import { IBook, ILivro } from "../interfaces/ILivro";
+import { ILivro } from "../interfaces/ILivro";
 
 const http = axios.create({
     baseURL: "http://localhost:8000",
@@ -38,13 +38,13 @@ export const obterCategoriaporSlug = async (slug: string) => {
 }
 
 export const obteLancamentos = async () => {
-    const resposta = await http.get<Array<IBook>>("public/lancamentos");
+    const resposta = await http.get<Array<ILivro>>("public/lancamentos");
 
     return resposta.data;
 }
 
 export const obterMaisVendidos = async () => {
-    const resposta = await http.get<Array<IBook>>("public/mais-vendidos");
+    const resposta = await http.get<Array<ILivro>>("public/mais-vendidos");
 
     return resposta.data;
 }

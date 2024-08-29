@@ -1,0 +1,13 @@
+.livroContainer {
+    margin: 0 30px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.descricaoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

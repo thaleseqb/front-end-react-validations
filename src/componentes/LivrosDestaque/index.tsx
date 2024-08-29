@@ -1,18 +1,18 @@
 import { AbBotao, AbCard } from "ds-alurabooks"
 import { useState } from "react"
-import { IBook, ILivro } from "../../interfaces/ILivro"
+import { ILivro } from "../../interfaces/ILivro"
 
 import './LivrosDestaque.css'
 import { setSelectionRange } from "@testing-library/user-event/dist/utils"
 
 interface LivrosDestaqueProps {
-    livros: IBook[]
+    livros: ILivro[]
 }
 
 const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
 
     const [indiceSelecionado, setIndiceSelecionado] = useState<number>(0);
-    const [selecionado, selecionarLivro] = useState<IBook>(livros[0])
+    const [selecionado, selecionarLivro] = useState<ILivro>(livros[0])
 
     return (<section className="LivrosDestaque">
         <div>

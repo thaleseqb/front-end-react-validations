@@ -9,6 +9,7 @@ import Titulo from "../../componentes/Titulo"
 import './Home.css'
 import { useQuery } from "@tanstack/react-query"
 import { obteLancamentos, obterMaisVendidos } from "../../http"
+import Livro from "../../componentes/Livro"
 
 const Home = () => {
     const [busca, setBusca] = useState("")
