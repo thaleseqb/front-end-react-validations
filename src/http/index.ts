@@ -1,4 +1,5 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
+import { ICategoria } from "../interfaces/ICategoria";
 
 const http = axios.create({
     baseURL: "http://localhost:8000",
@@ -24,3 +25,13 @@ http.interceptors.request.use(function (config: InternalAxiosRequestConfig<strin
 });
 
 export default http
+
+export const obterCategoriaporSlug = async (slug: string) => {
+    const resposta = await http.get<Array<ICategoria>>("categorias", {
+        params: {
+            slug
+        }
+    })
+
+    return resposta.data[0];
+}
