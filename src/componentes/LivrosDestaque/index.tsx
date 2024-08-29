@@ -1,28 +1,33 @@
 import { AbBotao, AbCard } from "ds-alurabooks"
 import { useState } from "react"
-import { ILivro } from "../../interfaces/ILivro"
+import { IBook, ILivro } from "../../interfaces/ILivro"
 
 import './LivrosDestaque.css'
+import { setSelectionRange } from "@testing-library/user-event/dist/utils"
 
 interface LivrosDestaqueProps {
-    livros: ILivro[]
+    livros: IBook[]
 }
 
 const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
 
-    const [selecionado, selecionarLivro] = useState<ILivro>(livros[0])
+    const [indiceSelecionado, setIndiceSelecionado] = useState<number>(0);
+    const [selecionado, selecionarLivro] = useState<IBook>(livros[0])
 
     return (<section className="LivrosDestaque">
         <div>
             <ul className="livros">
-                {livros.map(livro => {
+                {livros.map((livro, index) => {
                     return (
                     <li 
-                        key={livro.nome}
-                        onClick={() => selecionarLivro(livro)} 
-                        className={selecionado?.nome === livro.nome ? 'selecionado' : ''}
+                        key={livro.titulo}
+                        onClick={() => {
+                            selecionarLivro(livro);
+                            setIndiceSelecionado(index);
+                        }} 
+                        className={selecionado?.titulo === livro.titulo ? 'selecionado' : ''}
                     >
-                        <img src={livro.imagem} alt={`Capa do livro ${livro.nome} escrito por ${livro.autor}`} />
+                        <img src={livro.imagemCapa} alt={`Capa do livro ${livro.titulo} escrito por ${livro.autor}`} />
                     </li>)
                 })}
             </ul>
@@ -32,13 +37,15 @@ const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
                 <header>
                     <h5>Sobre o livro:</h5>
                 </header>
-                <h6>{selecionado.nome}</h6>
+                <h6>{selecionado.titulo}</h6>
                 <p>{selecionado.descricao}</p>
                 <p>Por: {selecionado.autor}</p>
                 <footer>
                     <div className="preco">
                         <em>A partir de:</em>
-                        <strong>{Intl.NumberFormat('pt-br', {style: 'currency', currency: 'BRL'}).format(selecionado.preco)}</strong>
+                        <strong>{Intl.NumberFormat('pt-br', {style: 'currency', currency: 'BRL'}).format(
+                            selecionado.opcoesCompra[indiceSelecionado].preco
+                        )}</strong>
                     </div>
                     <div>
                         <AbBotao texto="Comprar" />
