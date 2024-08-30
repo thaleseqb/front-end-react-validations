@@ -1,0 +1,40 @@
+.detalheContainer {
+    width: 60%;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.alignitems {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.infoLivroContainer {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tipos {
+    display: flex;
+}
+
+.especificacoesContainer {
+    width: 20%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detalheImagem {
+    width: 23%;
+}

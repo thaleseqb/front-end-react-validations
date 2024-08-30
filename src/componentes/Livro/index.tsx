@@ -1,15 +1,15 @@
-import { useQuery } from "@tanstack/react-query";
 import "./Livro.css"
-import { PropsWithChildren } from "react";
 import { AbBotao } from "ds-alurabooks";
+import { Link } from "react-router-dom";
 
 interface LivroProps {
     imagem: string;
     titulo:string;
     descricaoPreco: number;
+    slug: string;
 }
 
-const Livro = ({imagem, titulo, descricaoPreco}:LivroProps) => {
+const Livro = ({imagem, titulo, descricaoPreco, slug}:LivroProps) => {
 
     return (
         <div className="livroContainer">
@@ -23,7 +23,12 @@ const Livro = ({imagem, titulo, descricaoPreco}:LivroProps) => {
                 <p>A partir de: <strong>{descricaoPreco}</strong></p>
             </div>
             
-            <AbBotao texto="Comprar"/>
+            <Link
+                className="routerDomLink"
+                to={`/livro/${slug}`}
+            >
+                <AbBotao texto="Comprar"/>
+            </Link>
         </div>
     )
 }

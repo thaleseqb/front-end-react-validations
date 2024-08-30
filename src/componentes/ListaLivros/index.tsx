@@ -19,7 +19,8 @@ const ListaLivros = ({categoria}: ListaLivrosProps) => {
         <section className="listaLivrosContainer">
             {produtos?.map(produto => {
                 return (
-                    <Livro 
+                    <Livro
+                        slug={produto.slug}
                         key={produto.titulo}
                         descricaoPreco={produto.opcoesCompra[0].preco}
                         titulo={produto.titulo}

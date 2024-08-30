@@ -1,6 +1,6 @@
 import { TituloPrincipal } from "../../componentes/TituloPrincipal";
 import "./Categoria.css"
-import http, { obterCategoriaporSlug } from "../../http";
+import { obterCategoriaporSlug } from "../../http";
 import { useParams } from "react-router-dom";
 import Loader from "../../componentes/Loader";
 import { useQuery } from "@tanstack/react-query";
