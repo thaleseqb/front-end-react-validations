@@ -54,7 +54,7 @@ export const ModalLogin = ({ aberta, criarConta, aoFechar, aoEfetuarLogin }:Logi
                 aoEfetuarLogin();
             }} className="loginModal">
                 <figure>
-                    <img src={image} alt="image para fazer o login, contém ícone de cadastro, chave e pessoa" />
+                    <img src={image} alt="imagem para fazer o login, contém ícone de cadastro, chave e pessoa" />
                 </figure>
                 <div className="dadosContainer">
                     <AbCampoTexto 

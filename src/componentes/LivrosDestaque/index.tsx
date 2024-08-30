@@ -3,7 +3,6 @@ import { useState } from "react"
 import { ILivro } from "../../interfaces/ILivro"
 
 import './LivrosDestaque.css'
-import { setSelectionRange } from "@testing-library/user-event/dist/utils"
 
 interface LivrosDestaqueProps {
     livros: ILivro[]
