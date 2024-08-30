@@ -20,10 +20,10 @@ export const InfoPedido = ({
         <>
             <div className="containerPedido">
                 <div>
-                    <h3>Pedido: <strong>{pedido}</strong> </h3>
-                    <h3>Data do pedido: <strong>{`${dataPedido}`}</strong> </h3>
-                    <h3>Valor total: <strong> R$ {valorTotal}</strong> </h3>
-                    <h3>Entrega realizada em: <strong>{`${dataEntrega}`}</strong></h3>
+                    <p>Pedido: <strong>{pedido}</strong> </p>
+                    <p>Data do pedido: <strong>{`${dataPedido}`}</strong> </p>
+                    <p>Valor total: <strong> R$ {valorTotal}</strong> </p>
+                    <p>Entrega realizada em: <strong>{`${dataEntrega}`}</strong></p>
                 </div>
 
                 <div className="containerBotoes">

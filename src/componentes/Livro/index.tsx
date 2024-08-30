@@ -19,8 +19,8 @@ const Livro = ({imagem, titulo, descricaoPreco}:LivroProps) => {
                 alt={`Imagem referente ao livro: ${titulo}`} 
             />
             <div className="descricaoContainer">
-                <h2>{titulo}</h2>
-                <h3>{`A partir de: ${descricaoPreco}`}</h3>
+                <p>{titulo}</p>
+                <p>A partir de: <strong>{descricaoPreco}</strong></p>
             </div>
             
             <AbBotao texto="Comprar"/>
